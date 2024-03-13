@@ -20,6 +20,7 @@ public class Pong extends Canvas implements Runnable, KeyListener {
 
 	public Player player;
 	public Enemy enemy;
+	public Ball ball;
 
 	public Pong() {
 		this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
@@ -27,7 +28,8 @@ public class Pong extends Canvas implements Runnable, KeyListener {
 		this.addKeyListener(this);
 
 		player = new Player(100, HEIGHT - 10);
-		enemy = new Enemy(100,0);
+		enemy = new Enemy(100, 0);
+		ball = new Ball(100, HEIGHT / 2 - 1);
 	}
 
 	public static void main(String[] args) {
@@ -50,6 +52,7 @@ public class Pong extends Canvas implements Runnable, KeyListener {
 	public void spin() {
 		player.spin();
 		enemy.spin();
+		ball.spin();
 
 	}
 
@@ -63,8 +66,10 @@ public class Pong extends Canvas implements Runnable, KeyListener {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		player.render(g);
-		
+
 		enemy.render(g);
+		
+		ball.render(g);
 
 		g = bs.getDrawGraphics();
 		g.drawImage(layer, 0, 0, WIDTH * SCALE, HEIGHT * SCALE, null);
