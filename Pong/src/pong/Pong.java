@@ -14,13 +14,13 @@ import javax.swing.JFrame;
 public class Pong extends Canvas implements Runnable, KeyListener {
 
 	private static final long serialVersionUID = 1L;
-	public static int WIDTH = 240, HEIGHT = 120, SCALE = 3;
+	public static int WIDTH = 140, HEIGHT = 120, SCALE = 3;
 
 	public BufferedImage layer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
-	public Player player;
-	public Enemy enemy;
-	public Ball ball;
+	public static Player player;
+	public static Enemy enemy;
+	public static Ball ball;
 
 	public Pong() {
 		this.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
