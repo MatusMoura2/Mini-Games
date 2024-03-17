@@ -18,7 +18,7 @@ public class Enemy {
 	}
 
 	public void spin() {
-		x += (Pong.ball.x - x - 6) * 0.2;
+		x += (Pong.ball.x - x - 6) * 0.09;
 
 	}
 

@@ -12,7 +12,7 @@ public class Ball {
 	private int height;
 
 	public double directionY, directionX;
-	public double speed = 1;
+	public double speed = 1.5;
 
 	public Ball(int x, int y) {
 		this.x = x;
@@ -20,8 +20,7 @@ public class Ball {
 		this.width = 3;
 		this.height = 3;
 
-		
-		int angle = new Random().nextInt(359);
+		int angle = new Random().nextInt(90 - 40) + 46;
 		this.directionX = Math.cos(Math.toRadians(angle));
 		this.directionY = Math.sin(Math.toRadians(angle));
 	}
@@ -35,12 +34,12 @@ public class Ball {
 		}
 
 		if (y >= Pong.HEIGHT) {// Inimigo ganha
-			
+
 			new Pong();
 			return;
 
 		} else if (y < 0) {// Jogador ganha
-			
+
 			new Pong();
 			return;
 		}
@@ -54,10 +53,20 @@ public class Ball {
 				Pong.enemy.height);
 
 		if (rectangleBounds.intersects(rectangleBoundsPlayer)) {
-			directionY *= -1;
-			
-		}else if(rectangleBounds.intersects(rectangleBoundsEnemy)) {
-			directionY *=-1;
+
+			int angle = new Random().nextInt(90 - 40) + 46;
+			this.directionX = Math.cos(Math.toRadians(angle));
+			this.directionY = Math.sin(Math.toRadians(angle));
+
+			if (directionY > 0) {
+				directionY *= -1;
+			}
+
+		} else if (rectangleBounds.intersects(rectangleBoundsEnemy)) {
+
+			if (directionY < 0) {
+				directionY *= -1;
+			}
 		}
 
 		y += directionY * speed;
