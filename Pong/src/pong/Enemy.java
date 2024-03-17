@@ -14,17 +14,17 @@ public class Enemy {
 		this.x = x;
 		this.y = y;
 		this.width = 40;
-		this.height = 10;
+		this.height = 5;
 	}
 
 	public void spin() {
-		x += (Pong.ball.x - x - 6);
+		x += (Pong.ball.x - x - 6) * 0.2;
 
 	}
 
 	public void render(Graphics g) {
 		g.setColor(Color.WHITE);
-		g.fillRect((int) x, (int) y, 40, 10);
+		g.fillRect((int) x, (int) y, 40, 5);
 	}
 
 }

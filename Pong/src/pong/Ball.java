@@ -20,8 +20,10 @@ public class Ball {
 		this.width = 3;
 		this.height = 3;
 
-		this.directionX = new Random().nextGaussian();
-		this.directionY = new Random().nextGaussian();
+		
+		int angle = new Random().nextInt(359);
+		this.directionX = Math.cos(Math.toRadians(angle));
+		this.directionY = Math.sin(Math.toRadians(angle));
 	}
 
 	public void spin() {
@@ -33,9 +35,14 @@ public class Ball {
 		}
 
 		if (y >= Pong.HEIGHT) {// Inimigo ganha
+			
+			new Pong();
+			return;
 
 		} else if (y < 0) {// Jogador ganha
-
+			
+			new Pong();
+			return;
 		}
 
 		Rectangle rectangleBounds = new Rectangle((int) (x + (directionX * speed)), (int) (y + (directionY * speed)),

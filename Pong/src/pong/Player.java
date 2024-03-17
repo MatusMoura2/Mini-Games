@@ -13,7 +13,7 @@ public class Player {
 		this.x = x;
 		this.y = y;
 		this.width = 40;
-		this.height = 10;
+		this.height = 5;
 	}
 
 	public void spin() {
@@ -33,6 +33,6 @@ public class Player {
 
 	public void render(Graphics g) {
 		g.setColor(Color.WHITE);
-		g.fillRect(x, y, 40, 10);
+		g.fillRect(x, y, 40, 5);
 	}
 }
